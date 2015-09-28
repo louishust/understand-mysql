@@ -53,6 +53,8 @@ body的字节内容就是：类型+ "insert into t1 values(1)"
 
 不论对于server还是client，他们使用了同样的底层网络代码，所以行为也是一样的，对于这个参数的作用也是一致的。
 
+客户端与服务器的这两个参数要保持一致，不然会出现各种问题。
+
 
 ## 什么情况导致Got bigger packet?
 
@@ -72,3 +74,16 @@ max_allowed_packet参数的限制，而相反的，如果是net read操作，就
 max_allowed_packet表示接收的packet的最大的大小，而net_buffer_length表示本身消息缓冲区的大小，因为packet是先写入本身的缓冲区，然后才通过socket发送。所以net_buffer_length的设置要小于max_allowed_packet，因为反之的话，没有意义，对于一个大的packet，即使buffer够，也会受到max_allowed_packet的参数限制。
 
 net_buffer_length这个参数用于初始化net的buffer大小，但是这个大小是可变的，如果接收的packet大于这个大小，则会动态调整buffer大小，最大调整到与max_allowed_packet一样大小。这就是这两个参数的关系。
+
+
+## 参数默认值
+
+以5.5.39为例，具体的参数值随版本的变化有调整。
+
+客户端max_allowed_packet取值范围4096-2G，默认值是16M
+
+客户端net_buffer_length取值范围1024-512M，默认值16K
+
+服务器max_allowed_packet取值范围1024-1G，默认值是1M
+
+服务器net_buffer_length取值范围1024-1M, 默认值16K
