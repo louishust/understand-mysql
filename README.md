@@ -1,5 +1,5 @@
-深入理解MySQL
+MySQL疑难问题集锦
 =======
 
-test
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+本书针对生产环境中的MySQL疑难问题，进行深入研究，
+知其然，知其所以然。
