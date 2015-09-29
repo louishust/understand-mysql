@@ -76,6 +76,15 @@ max_allowed_packet表示接收的packet的最大的大小，而net_buffer_length
 net_buffer_length这个参数用于初始化net的buffer大小，但是这个大小是可变的，如果接收的packet大于这个大小，则会动态调整buffer大小，最大调整到与max_allowed_packet一样大小。这就是这两个参数的关系。
 
 
+## 如果有很大的blob字段该如何？
+
+当我们一条insert语句，或者select语句涉及到blob时，这就可能导致发送或者返回的packet异常的大，如果超过了max_allowed_packet的限制，
+那么就会执行失败，从而导致连接断开。
+
+所以，针对大字段，需要将这个参数设置大一些，不然无法对blob字段进行操作了。当然，我们在设计表的时候也应该尽可能的避免一行数据
+过大的情况。前期DBA的严把关，可以让后面的运维省心省力。
+
+
 ## 参数默认值
 
 以5.5.39为例，具体的参数值随版本的变化有调整。
