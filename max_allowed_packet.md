@@ -19,7 +19,7 @@ MySQL是C/S结构，client与server之间的通信需要遵循约定的规则，
 
 packet包含两部分：header与body。
 
-header: 4个字节，前三个字节表示整个packet的长度（包括header），第4字节表示packet序列号，即packet number。
+header: 4个字节，前三个字节表示整个packet的长度（不包括header），第4字节表示packet序列号，即packet number。
 
 body：是packet的具体内容，根据不同的语句类型，可以有很多类型的body，body的第1个字节表示语句类型，后续字节表示具体的内容。
 
