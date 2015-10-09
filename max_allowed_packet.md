@@ -31,6 +31,11 @@ packet的body因为是不固定的，而header表示长度的只有3个字节，
 这时候如果packet的长度大于或等于2^24-1，那么会设置packet的header前三个字节为2^24 - 1,表示此packet还没结束，也就是说如果一个packet超过16M，那么就会拆分成多个packet。
 
 
+### 发包逻辑
+
+![PNG](images/max_allowed_packet.png)
+
+
 ### insert语句packet示例
 
 假设client发送了一条语句：
