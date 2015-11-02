@@ -83,6 +83,8 @@ https://blog.mozilla.org/it/2012/06/30/mysql-and-the-leap-second-high-cpu-and-th
 
 http://marc.info/?l=linux-kernel&m=134113577921904
 
+https://lkml.org/lkml/2012/7/1/203
+
 由于对linux内核不了解，这个bug的具体原因我也解释不好，大概的原因是闰秒发生时，CLOCK_REALTIME
 相关的变量没有设置正确，导致一些对于CLOCK_REALTIME的调用会出现偏差。
 这个bug可以导致的问题就是如果存在基于CLOCK_REALTIME的计时器（timer），
