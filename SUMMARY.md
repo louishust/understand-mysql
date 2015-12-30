@@ -4,3 +4,4 @@
 * [闰秒导致MySQL CPU飙高](leap_seconds.md)
 * [mysqldump的风险与控制](mysqldump.md)
 * [深入理解max_connect_errors参数](max_connect_errors.md)
+* [MariaDB Thread Pool引发的血案](mariadb_thread_pool.md)
