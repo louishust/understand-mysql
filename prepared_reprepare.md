@@ -17,6 +17,10 @@ ERROR 1615 (HY000): Prepared statement needs to be re-prepared
 
 在mysql bug论坛里面也是这么说：
 
+https://bugs.mysql.com/bug.php?id=42041
+
+bug论坛里面的说法是这不是一个bug，手册中也有提到此问题：
+
 http://dev.mysql.com/doc/refman/5.6/en/statement-caching.html
 
 
